@@ -1,0 +1,98 @@
+﻿@model WebApplication1.Models.BaseAccount
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+    <style>
+        #btnForgetPassword:hover,
+        #btnReset:hover {
+            font-weight: bold;
+        }
+        #btnLogin {
+            background: #F4CCCC;
+            transition: 0.3s;
+        }
+        #btnLogin:hover {
+            background: #dbb7b7;
+        }
+    </style>
+
+    <script>
+        var LoginMsg = '@ViewBag.LoginMsg';    
+        if (LoginMsg != "")
+            alert(LoginMsg);
+    </script>
+</head>
+<body>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <div style="width: 400px; height: 500px; border-radius: 10px; background-color: #cfcdcc; border: 1px solid rgb(245, 52, 181); position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; margin: auto">
+            <div class="content" style="margin-top: 65px;  ">
+                <div class="row" style="padding: 10px 0px">
+                    <div class="col col-sm-12">
+                        <h2 style="text-align:center; padding: 10px 0px 5px 0px;">Login</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-2"></div>
+                    <div class="col col-sm-8" style="font-weight: 500;">
+                        UserName
+                    </div>
+                    <div class="col col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-2"></div>
+                    <div class="col col-sm-8">
+                        @Html.TextBoxFor(m=>m.UserName, new {style="width: 100%; border-radius: 7px;"})
+                        @*<input type="text" name="txtUserName" style="width: 100%; border-radius: 8px; padding: 2px 0px; " />*@
+                    </div>
+                    <div class="col col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-2"></div>
+                    <div class="col col-sm-8" style="font-weight: 500;">
+                        Password
+                    </div>
+                    <div class="col col-sm-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col col-sm-2"></div>
+                    <div class="col col-sm-8">
+                        @Html.TextBoxFor(m => m.Password, new { style = "width: 100%; border-radius: 7px;" })
+                        @*<input type="text" name="txtPassword" style="width: 100%; border-radius: 8px; padding: 2px 0px; " />*@
+                    </div>
+                    <div class="col col-sm-2"></div>
+                </div>
+                <div class="row" style="padding: 30px 0px 20px 0px; ">
+                    <div class="col col-sm-3"></div>
+                    <div class="col col-sm-6" >
+                        <input type="submit" id="btnLogin" value="LOGIN" name="btnSubmit" style="width: 100%; border-radius: 30px; padding: 3px 0px; font-weight: 600; "/>
+                    </div>
+                    <div class="col col-sm-3"></div>
+                </div>
+                <div class="row" style="">
+                    <div class="col col-sm-1"></div>
+                    <dvi class="col col-sm-5" >
+                        <input type="submit" id="btnForgetPassword" value="Forget Password" name="btnSubmit" style="width: 100%; border: none; background: none; font-style: italic; transition: 0.2s;" />
+                    </dvi>
+                    <div class="col col-sm-5" >
+                        <input type="submit" id="btnReset" value="Reset Password" name="btnSubmit" style="width: 100%; border: none; background: none; font-style: italic; transition: 0.2s; " />
+                    </div>
+                    <div class="col col-sm-1"></div>
+                </div>
+            </div>
+        </div>
+        
+    }
+    
+</body>
+</html>
